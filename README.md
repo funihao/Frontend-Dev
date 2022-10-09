@@ -2,6 +2,7 @@
 
 - [Curso de Fontend Developer](#curso-de-fontend-developer)
   - [Preparación del entorno](#preparación-del-entorno)
+  - [Clase 1 - New Password](#clase-1---new-password)
 
 Este es el repositorio del curso de frontend developer de Platzi con Estefany Aguilar. Es un curso práctico para profundizar en aspectos más profesionales. Por tanto, se necesita tener conocimientos básicos de HTML y CSS. En este curso no se usa JavaScript.
 
@@ -127,8 +128,7 @@ Partiendo del documento `index.html` que creamos anteriormente, vamos a crear un
   </style>
   <body>
     <div class="login">
-      <div class="form-container">
-      </div>
+      <div class="form-container"></div>
     </div>
   </body>
 </html>
