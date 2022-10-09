@@ -78,3 +78,263 @@ Aquí, también colocamos los estilos básicos para usar las fuentes y definimos
 Obtenemos los iconos y logos especificados y guardamos en sus carpetas correspondientes.
 
 ya tenemos todo listo para empezar a maquetar nuestro proyecto. Cada pantalla se maquetará en un único archivo que incluirá los estilos.
+
+## Clase 1 - New Password
+
+Vamos a desarrollar la pantalla de cambio de contraseña. La pantalla para dispositivos móviles debe quedar como la imagen.
+
+<div style="text-align: center"><img src="./pantallas/new_password.png" width="200px" /></div>
+
+La pantalla para escritorio será la misma con la diferencia que no se mostrará el logo. En el escritorio siempre tendremos la barra de navegación y en ella el logo. Esta barra es un componente que estará en todas las pantallas del escritorio, de modo que no la vamos a incluir por el momento.
+
+Como puedes ver, nuestra pantalla contiene un logo (versión móvil), un título, un subtítulo y un formulario con sus correspondientes elementos. podemos decir que se trata de un formulario de cambio de contraseña.
+
+Partiendo del documento `index.html` que creamos anteriormente, vamos a crear un archivo con el nombre `newPassword.html` y aquí añadimos dentro del `body` un bloque que contendrá a su vez otro bloque con todos los elementos.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+  </style>
+  <body>
+    <div class="login">
+      <div class="form-container">
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+Al primero le damos la clase `login` y al segundo `form-container`, ya que será el contenedor del formulario. El primer bloque con la clase `login` es el contenedor principal. Tenemos unas cuantas pantallas que desarrollar para manejar los diferentes casos de _login_. Crear una cuenta, entrar a la cuenta, restablecer la contraseña, etc. Todos ellos estaran contenidos en bloque con la clase `login`.
+
+Ahora definimos el resto de elementos y les añadimos clases de estilos que luego iremos configurando.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+  </style>
+  <body>
+    <div class="login">
+      <div class="form-container">
+        <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo" />
+        <h1 class="title">Create a new password</h1>
+        <p class="subtitle">Enter a new password for you account</p>
+
+        <form action="" class="form">
+          <label for="password" class="label">Password</label>
+          <input
+            type="text"
+            id="password"
+            class="input input-password"
+            placeholder="********"
+          />
+
+          <label for="new-password" class="label">Password</label>
+          <input
+            type="text"
+            id="new-password"
+            class="input input-password"
+            placeholder="********"
+          />
+          <input
+            type="submit"
+            class="primary-button login-button"
+            value="Confirm"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+Ya podemos ir añadiendo estilos para que nuestra página quede como nos han especificado. Fíjate que elegimos para el botón un componente `input` de tipo `submit`. En ese caso el texto del botón estará en el `value` del `input`.
+
+Intenta realizar el estilo de los elementos. Utiliza las variables de color y tamaño que creamos al principio. A continuación tienes el código para que compruebes y compares.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+    .login {
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .form-container {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      max-width: 400px;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 48px;
+      justify-self: center;
+      display: none;
+    }
+    .title {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .subtitle {
+      color: var(--very-light-pink);
+      font-size: var(--lg);
+      margin-top: 0;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-size: var(--sm);
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .input {
+      background-color: var(--text-input-field);
+      border: none;
+      border-radius: 8px;
+      height: 30px;
+      font-size: var(--md);
+      margin-bottom: 12px;
+      padding: 6px;
+    }
+    .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--lg);
+      font-weight: bold;
+      height: 50px;
+    }
+    .login {
+      margin-bottom: 30px;
+      margin-top: 14px;
+    }
+    @media (max-width: 640px) {
+      .logo {
+        display: block;
+      }
+    }
+  </style>
+  <body>
+    <div class="login">
+      <div class="form-container">
+        <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo" />
+        <h1 class="title">Create a new password</h1>
+        <p class="subtitle">Enter a new password for you account</p>
+
+        <form action="" class="form">
+          <label for="password" class="label">Password</label>
+          <input
+            type="text"
+            id="password"
+            class="input input-password"
+            placeholder="********"
+          />
+
+          <label for="new-password" class="label">Password</label>
+          <input
+            type="text"
+            id="new-password"
+            class="input input-password"
+            placeholder="********"
+          />
+          <input
+            type="submit"
+            class="primary-button login-button"
+            value="Confirm"
+          />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+```
