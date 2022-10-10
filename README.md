@@ -5,6 +5,7 @@
   - [Clase 1 - New Password](#clase-1---new-password)
   - [Clase 2 - Email Send](#clase-2---email-send)
   - [Clase 3 - Login](#clase-3---login)
+  - [Clase 4 - Crear cuenta](#clase-4---crear-cuenta)
 
 Este es el repositorio del curso de frontend developer de Platzi con Estefany Aguilar. Es un curso práctico para profundizar en aspectos más profesionales. Por tanto, se necesita tener conocimientos básicos de HTML y CSS. En este curso no se usa JavaScript.
 
@@ -645,6 +646,161 @@ Podemos partir del primer archivo que creamos que contenía una estructura muy s
         <div>
           <button class="secondary-button singup-button">Sign up</button>
         </div>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+## Clase 4 - Crear cuenta
+
+En esta ocasión, también nos vamos a basar en el archivo `newPasword.html`. Tiene todos los elementos que necesitamos para esta pantalla.
+
+<div style="text-align: center"><img src="./pantallas/create_account.png" width="200px" /></div>
+
+Necesitamos un formulario con tres campos de entrada y un botón, y un título. Eso es todo. Ha estas alturas ya estas cogiendo soltura y crear esta sencilla página en un archivo que llamaremos, `create_account.html`, será casi trivial.
+
+Aquí nos enfrentaremos a un pequeño reto. La versión de escritorio - _desktop_ - es compacta. Tiene la barra de menú como en todas las páginas pero los elementos están agrupados en el centro. La versión móvil tiene los elementos de entrada desplazados hacia arriba y el botón de ejecución en la zona inferior de la pantalla.
+
+<div style="text-align: center"><img src="./pantallas/create_account_desk.png" width="400px" /></div>
+
+La página de creación de cuenta y de edición de la cuenta solo se diferencian en el texto del botón de ejecución. En el primero debe poner `Create` o `Crear` y en el segundo `Save` o `Guardar`.
+
+Para conseguir el efecto de espaciado de los elementos podemos conseguirlo con la propiedad de los elementos `flex`, haciendo un `justify-content: space-between` en el padre, el `form`. Este comportamiento solo para el caso de móviles, pantallas por debajo, por ejemplo de `640px` de ancho.
+
+Por tanto debemos colocar los elementos del `form` en dos bloques. El primero contendrá todos los campos en un `div` y fuera el botón que por si mismo se comporta como un bloque. Este bloque, `div`, debe ser también de tipo `flex`.
+
+Tener en cuenta que a pesar de que quede muy pegado a la parte superior el título, no debe preocupar, ya que luego por encima debe estar el menú.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+    .login {
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .form-container {
+      display: grid;
+      grid-template-rows: auto 2fr auto;
+    }
+    .title {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .title.title-right {
+      text-align: start;
+      margin-bottom: 36px;
+    }
+    .form,
+    .form div {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-size: var(--sm);
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .input {
+      background-color: var(--text-input-field);
+      border: none;
+      border-radius: 8px;
+      height: 30px;
+      font-size: var(--md);
+      margin-bottom: 12px;
+      padding: 6px;
+    }
+    .input-email,
+    .input-password,
+    .input-name {
+      margin-bottom: 22px;
+    }
+    .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--lg);
+      font-weight: bold;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 640px) {
+      .form-container {
+        height: 100%;
+      }
+      .form {
+        justify-content: space-between;
+      }
+    }
+  </style>
+  <body>
+    <div class="login">
+      <div class="form-container">
+        <h1 class="title title-right">My account</h1>
+
+        <form action="" class="form">
+          <div>
+            <label for="name" class="label">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="input input-name"
+              placeholder="Your Name"
+            />
+
+            <label for="email" class="label">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="input input-email"
+              placeholder="yourname@example.com"
+            />
+
+            <label for="password" class="label">Password</label>
+            <input
+              type="text"
+              id="password"
+              class="input input-password"
+              placeholder="********"
+            />
+          </div>
+
+          <input type="submit" class="primary-button" value="Edit" />
+        </form>
       </div>
     </div>
   </body>
