@@ -6,6 +6,7 @@
   - [Clase 2 - Email Send](#clase-2---email-send)
   - [Clase 3 - Login](#clase-3---login)
   - [Clase 4 - Crear cuenta](#clase-4---crear-cuenta)
+  - [Clase 4 - Editar cuenta](#clase-4---editar-cuenta)
 
 Este es el repositorio del curso de frontend developer de Platzi con Estefany Aguilar. Es un curso práctico para profundizar en aspectos más profesionales. Por tanto, se necesita tener conocimientos básicos de HTML y CSS. En este curso no se usa JavaScript.
 
@@ -800,6 +801,154 @@ Tener en cuenta que a pesar de que quede muy pegado a la parte superior el títu
           </div>
 
           <input type="submit" class="primary-button" value="Edit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+## Clase 5 - Editar cuenta
+
+En esta pantalla los campos de entrada son sustituidos por texto y tendrá un botón de tipo secundario - `secondary-button` - para entrar en el modo de edición.
+
+<div style="text-align: center"><img src="./pantallas/my_account.png" width="200px" /></div>
+
+Si usamos el archivo de la clase anterior, `create_account.html`, con un pequeño esfuerzo tendremos nuestro archivo funcionando según la especificación.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+    .login {
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .form-container {
+      display: grid;
+      grid-template-rows: auto 2fr auto;
+      width: 400px;
+    }
+    .title {
+      font-size: var(--lg);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .title.title-right {
+      text-align: start;
+      margin-bottom: 36px;
+    }
+    .form,
+    .form div {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-size: var(--sm);
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .input {
+      background-color: var(--text-input-field);
+      border: none;
+      border-radius: 8px;
+      height: 30px;
+      font-size: var(--md);
+      margin-bottom: 12px;
+      padding: 6px;
+    }
+    .input-email,
+    .input-password,
+    .input-name {
+      margin-bottom: 22px;
+    }
+    .value {
+      color: var(--very-light-pink);
+      font-size: var(--sm);
+      font-weight: 700;
+      margin: 8px 0 32px 0;
+    }
+    .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--lg);
+      font-weight: bold;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    .secondary-button {
+      background-color: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--hospital-green);
+      color: var(--hospital-green);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--lg);
+      font-weight: bold;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 640px) {
+      .form-container {
+        width: 90%;
+        height: 100%;
+      }
+      .form {
+        justify-content: space-between;
+      }
+    }
+  </style>
+  <body>
+    <div class="login">
+      <div class="form-container">
+        <h1 class="title title-right">My account</h1>
+
+        <form action="" class="form">
+          <div>
+            <label for="name" class="label">Name</label>
+            <p id="name" class="value">Your Name</p>
+
+            <label for="email" class="label">Email</label>
+            <p id="email" class="value">yourname@example.com"</p>
+
+            <label for="password" class="label">Password</label>
+            <p id="password" class="value">*********</p>
+          </div>
+
+          <input type="submit" class="secondary-button" value="Edit" />
         </form>
       </div>
     </div>
