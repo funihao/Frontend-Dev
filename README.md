@@ -6,7 +6,8 @@
   - [Clase 2 - Email Send](#clase-2---email-send)
   - [Clase 3 - Login](#clase-3---login)
   - [Clase 4 - Crear cuenta](#clase-4---crear-cuenta)
-  - [Clase 4 - Editar cuenta](#clase-4---editar-cuenta)
+  - [Clase 5 - Editar cuenta](#clase-5---editar-cuenta)
+  - [Clase 6 - Página de inicio](#clase-6---página-de-inicio)
 
 Este es el repositorio del curso de frontend developer de Platzi con Estefany Aguilar. Es un curso práctico para profundizar en aspectos más profesionales. Por tanto, se necesita tener conocimientos básicos de HTML y CSS. En este curso no se usa JavaScript.
 
@@ -952,6 +953,134 @@ Si usamos el archivo de la clase anterior, `create_account.html`, con un pequeñ
         </form>
       </div>
     </div>
+  </body>
+</html>
+```
+
+## Clase 6 - Página de inicio
+
+La página de inicio (o el _"home"_) contendrá un listado de productos. Cada producto estará contenido en una tarjeta con una imagen del producto y bajo ella, el precio y un título, a la izquierda y el botón de añadir al carrito a la derecha. A continuación un ejemplo de como debe quedar la página.
+
+<div style="text-align: center"><img src="./pantallas/home1_signin.png" width="200px" /></div>
+
+Para ello haremos uso del _display_ _grid_ en _CSS_. Para la versión móvil se mostraran dos columnas y para versiones en tablets y sobremesa las columnas se adaptaran al tamaño de la ventana.
+
+<div style="text-align: center"><img src="./pantallas/home1.png" width="200px" /></div>
+
+El menú no se incluye, ya que es un elemento común para todas las páginas y que realizaremos en el próximo capítulo.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --white: #fff;
+      --black: #000;
+      --very-light-pink: #c7c7c7;
+      --text-input-field: #f7f7f7;
+      --hospital-green: #acd8b2;
+      --sm: 14px;
+      --md: 16px;
+      --lg: 18px;
+    }
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 240px);
+      place-content: center;
+      gap: 26px;
+    }
+    .product-card,
+    .product-card img {
+      width: 240px;
+    }
+    .product-card img {
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .product-info figure {
+      margin: 0;
+    }
+    .product-info figure img {
+      width: 35px;
+    }
+    .product-info div p:nth-child(1) {
+      font-weight: bold;
+      font-size: var(--md);
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+    .product-info div p:nth-child(2) {
+      font-size: var(--md);
+      color: var(--very-light-pink);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    @media (max-width: 640px) {
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 140px);
+      }
+      .product-card {
+        width: 140px;
+      }
+      .product-card img {
+        width: 140px;
+      }
+    }
+  </style>
+  <body>
+    <section class="main-container">
+      <div class="cards-container">
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg"
+            alt=""
+          />
+          <div class="product-info">
+            <div>
+              <p>1120,00</p>
+              <p>Bike</p>
+            </div>
+            <figure><img src="./icons/bt_add_to_cart.svg" alt="" /></figure>
+          </div>
+        </div>
+        <div class="product-card">
+          <img
+            src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg"
+            alt=""
+          />
+          <div class="product-info">
+            <div>
+              <p>1120,00</p>
+              <p>Bike</p>
+            </div>
+            <figure><img src="./icons/bt_add_to_cart.svg" alt="" /></figure>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
 ```
